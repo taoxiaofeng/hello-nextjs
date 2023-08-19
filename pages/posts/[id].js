@@ -32,6 +32,7 @@ export async function getStaticProps(context) {
     props: {
       data: res,
     },
+    revalidate: 10, // 10秒更新一次
   };
 }
 
