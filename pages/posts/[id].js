@@ -14,7 +14,7 @@ const Post = ({ data }) => {
     <div className={styles.container}>
       <h2>{data?.name || '未查询到'}</h2>
       <div>height: {data?.height || '未知1'}</div>
-      <div>weightL {data?.weight || '未知'}</div>
+      <div>weight: {data?.weight || '未知'}</div>
       <div>
         <Image src={data?.sprites?.other['official-artwork']?.front_default} alt={'pokemon pic'} width={400} height={400} />
       </div>
@@ -40,6 +40,7 @@ export async function getStaticProps(context) {
 export async function getStaticPaths() {
   return {
     paths: _.range(1, 100).map((id) => ({ params: { id: `${id}` } })),
-    fallback: "blocking",
+    // fallback: "blocking",
+    fallback: false,
   };
 }
